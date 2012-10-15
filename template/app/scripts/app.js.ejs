@@ -1,0 +1,6 @@
+var <%= name %> = angular.module('<%= name %>', [])
+  .conf(function($routeProvider){
+    $routeProvider
+      .when('/', { controller: 'Index', templateUrl: '/app/views/index.html' });
+  });
+  
