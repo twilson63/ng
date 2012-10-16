@@ -1,4 +1,4 @@
-# ng - [Experimental]
+# ng - [UnStable]
 
 CLI Build Tool for AngularJS
 
