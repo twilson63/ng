@@ -19,23 +19,23 @@ module.exports = function(name, cb) {
     console.log('project already exists!');
     return;
   }
+  var data = { 
+      name: name, 
+      title: name,
+      version: "0.0.0",
+      bootstrap: conf.generator.bootstrap,
+      fontawesome: conf.generator.fontawesome,
+      jquery: conf.generator.jquery,
+      bootstrapjs: conf.generator.bootstrapjs,
+      angularjs: conf.generator.angularjs
+  };
   // create project directory
   fs.mkdirSync(name);
   wrench.readdirSyncRecursive(templateDir).forEach(
     function(item){
       if(/.ejs$/.test(item)) {
-        var ejsTemplate = fs.readFileSync(path.join(templateDir, item));
-        var result = ejs.render(ejsTemplate.toString(), { 
-              name: name, 
-              title: name,
-              version: "0.0.0",
-              bootstrap: conf.generator.bootstrap,
-              fontawesome: conf.generator.fontawesome,
-              jquery: conf.generator.jquery,
-              bootstrapjs: conf.generator.bootstrapjs,
-              angularjs: conf.generator.angularjs
-            }
-          );
+        var ejsTemplate = fs.readFileSync(path.join(templateDir, item)),
+          result = ejs.render(ejsTemplate.toString(), data);
         fs.writeFileSync(path.join(name, item.replace('.ejs', '')), result);
       } else {
         mkdirp(path.join(name, item));

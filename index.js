@@ -10,8 +10,11 @@ app.use(flatiron.plugins.cli, {
     '',
     'Commands:',
     'version - returns the version',
-    'init - creates a basic angular app structure',
-    'g - generates new [controller, view, resource, etc]'
+    'init [name] - creates a basic angular app structure',
+    'controller [name] - generates new controller',
+    'directive [name] - generates new directive',
+    'service [name] - generates new service'
+
   ]
 });
 app.start();
