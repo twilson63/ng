@@ -34,12 +34,15 @@ module.exports = function(name, cb) {
   fs.mkdirSync(name);
   wrench.readdirSyncRecursive(templateDir).forEach(
     function(item){
-      if(/.ejs$/.test(item)) {
-        var ejsTemplate = fs.readFileSync(path.join(templateDir, item)),
-          result = ejs.render(ejsTemplate.toString(), data);
-        fs.writeFileSync(path.join(name, item.replace('.ejs', '')), result);
-      } else {
-        mkdirp(path.join(name, item));
+      // skip directive and service
+      if(!(/directives|services/.test(item))) {
+        if(/.ejs$/.test(item)) {
+          var ejsTemplate = fs.readFileSync(path.join(templateDir, item)),
+            result = ejs.render(ejsTemplate.toString(), data);
+            fs.writeFileSync(path.join(name, item.replace('.ejs', '')), result);
+        } else {
+          mkdirp(path.join(name, item));
+        }
       }
     }
   );
