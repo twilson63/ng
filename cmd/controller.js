@@ -14,5 +14,7 @@ module.exports = function(name, cb) {
       ctrl = item.replace('index', name);
     fs.writeFileSync(path.join('.', ctrl.replace('.ejs', '')), result);
   });
+  console.log('REMEMBER:');
+  console.log('Add your new controller and template to your route provider!');
   cb(null);
 }
