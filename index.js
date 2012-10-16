@@ -4,7 +4,7 @@ var flatiron = require('flatiron'),
 
 app.use(flatiron.plugins.cli, {
   // CLI Options
-  dir: __dirname,
+  dir: __dirname + '/cmd',
   usage: [
     'ng - AngularJS CLI',
     '',
@@ -14,9 +14,4 @@ app.use(flatiron.plugins.cli, {
     'g - generates new [controller, view, resource, etc]'
   ]
 });
-
-app.cmd('version', function() {
-  console.log('ng');
-});
-
 app.start();

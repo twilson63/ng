@@ -7,10 +7,13 @@
     <link href="<%= fontawesome %>" rel="stylesheet">
   </head>
   <body>
-    <div ng-app="<%= name %>"></div>
-    <ng-view></ng-view>
+    <div ng-app="<%= name %>" class="container">
+      <ng-view></ng-view>
+    </div>
     <script src="<%= jquery %>"></script>
     <script src="<%= bootstrapjs %>"></script>
     <script src="<%= angularjs %>"></script>
+    <script src="/app/scripts/app.js"></script>
+    <script src="/app/scripts/controllers/index.js"></script>
   </body>
 </html>
