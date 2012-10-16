@@ -27,7 +27,8 @@ module.exports = function(name, cb) {
       fontawesome: conf.generator.fontawesome,
       jquery: conf.generator.jquery,
       bootstrapjs: conf.generator.bootstrapjs,
-      angularjs: conf.generator.angularjs
+      angularjs: conf.generator.angularjs,
+      view: null
   };
   // create project directory
   fs.mkdirSync(name);
