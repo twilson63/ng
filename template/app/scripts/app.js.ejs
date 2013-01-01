@@ -1,6 +1,12 @@
-var app = angular.module('<%= name %>', [])
-  .config(function($routeProvider){
-    $routeProvider
-      .when('/', { controller: 'Index', templateUrl: '/app/views/index.html' });
-  });
-  
+var routes = [
+// START ROUTES
+{ map: '/', controller: 'Index', templateUrl: '/app/views/index.html' }
+// STOP ROUTES
+];
+
+var app = angular.module('ngApp', [])
+  .config(['$routeProvider', function($routeProvider) {
+    routes.forEach(function(route){
+      $routeProvider.when(route.map, route);
+    })
+  }]);
